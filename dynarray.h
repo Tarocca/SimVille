@@ -7,7 +7,7 @@
 template <class T> class DynArray {
 
 	public:
-		DynArray(int size);
+		explicit DynArray(int size);
 		~DynArray();
 
 		T& operator[] (int index);

@@ -28,10 +28,12 @@ int main ( int argc, char** argv){
 	int street_length = 0;
 	std::cin >> street_length;
 	DynArray<Building*> street(street_length);
+	Building(4);
 
 	for (int ib=0; ib < street_length;++ib) {
 		Building* current_building= new Building;
 		street[ib] = current_building;
+		delete current_building;
 	}
 
 	print_street(std::cout,street);

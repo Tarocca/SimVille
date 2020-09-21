@@ -1,10 +1,11 @@
 #include <iostream> 
 #include <resident.h>
+#include <dynarray.h>
 
 class Building {
 public: 
-	Building (int id);
 	Building();
+	Building(int hab);
 	~Building();
 	Building& operator=(const Building& rhs);
 	inline int identifier() const {return id_;}

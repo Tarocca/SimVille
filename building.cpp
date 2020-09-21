@@ -9,12 +9,25 @@ void Building::swap_residents(Building& other) {
 	resident_ = tmp;	
 }
 
-Building::Building() : id_(unique_id), resident_(new Resident) {
+Building::Building() : id_(unique_id), resident_(Resident[1]) {
 	std::cout << "Building::Building()" << " At " << this << std::endl;
 	unique_id++;
 }
+
+Building::Building(int hab) : id_(unique_id), resident_(Resident[hab]) {
+        std::cout << "Building::Building()" << " At " << this << std::endl;
+	for (int i = 0 ; i < resident_.size(); i++){
+		Resident* neo_res = new Resident;
+		resident_[i] = neo_res;
+		delete neo_res;
+	}
+
+        unique_id++;
+}
+
+
 Building::~Building() {
-	delete resident_;
+	delete[] resident_;
         resident_=nullptr;
 	std::cout << "~Building(" << id_ << ") At " << this << std::endl;
 
