@@ -32,6 +32,7 @@ int main ( int argc, char** argv){
 	for (int ib=0; ib < street_length;++ib) {
 		Building* current_building= new Building;
 		street[ib] = current_building;
+		delete current_building;
 	}
 
 	print_street(std::cout,street);

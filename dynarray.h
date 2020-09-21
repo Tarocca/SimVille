@@ -72,6 +72,14 @@ template <class T> const int DynArray<T>::size() const{
 }
 
 template <class T> const T& DynArray<T>::operator[](int index) const{
+        assert(index >=0 && index < size_);
+        return mach_[index];
+
+}
+
+
+
+template <class T> T& DynArray<T>::operator[](int index) {
 	assert(index >=0 && index < size_);
 	return mach_[index];
  
