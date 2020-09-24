@@ -1,13 +1,13 @@
-#include <iostream> 
+#include <iostream>
 #include <resident.h>
 
 class Building {
-public: 
+public:
 	Building (int id);
 	Building();
 	~Building();
 	Building& operator=(const Building& rhs);
-	const Resident* get_resident() const;
+	Resident* get_resident();
 	void set_resident(Resident* res);
 	inline int identifier() const {return id_;}
 	virtual void swap_residents(Building& other){} ;
