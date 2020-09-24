@@ -7,9 +7,12 @@ public:
 	Building();
 	~Building();
 	Building& operator=(const Building& rhs);
+	const Resident* get_resident() const;
+	void set_resident(Resident* res);
 	inline int identifier() const {return id_;}
-	void swap_residents(Building& other);
+	virtual void swap_residents(Building& other){} ;
 	friend std::ostream& operator<<(std::ostream& out, const Building& rhs);
+
 
 private:
 	static int unique_id;

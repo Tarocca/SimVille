@@ -28,14 +28,15 @@ int main ( int argc, char** argv){
 	int street_length = 0;
 	std::cin >> street_length;
 	DynArray<Building*> street(street_length);
-
+	Building* stray = new Building(3);
+	delete stray;
 	for (int ib=0; ib < street_length;++ib) {
 		Building* current_building= new Building;
 		street[ib] = current_building;
 	}
 
 	print_street(std::cout,street);
-	shuffle_resident(street);
+	//shuffle_resident(street);
 	print_street(std::cout,street);
 	return 0 ; //Normal termination
 }

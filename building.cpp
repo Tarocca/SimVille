@@ -2,21 +2,22 @@
 #include <building.h>
 
 int Building::unique_id = 0;
-
-void Building::swap_residents(Building& other) {
-	Resident* tmp = other.resident_;
-	other.resident_ = resident_;
-	resident_ = tmp;	
-}
-
-Building::Building() : id_(unique_id), resident_(new Resident) {
+Building::Building() : id_(unique_id), resident_(new Resident[1]) {
 	std::cout << "Building::Building()" << " At " << this << std::endl;
 	unique_id++;
 }
 Building::~Building() {
-	delete resident_;
+	delete[] resident_;
         resident_=nullptr;
 	std::cout << "~Building(" << id_ << ") At " << this << std::endl;
+
+}
+
+
+Building::Building(int hab) : id_(unique_id), resident_(new Resident[hab]) {
+	
+	std::cout << "Building::Building()" << " At " << this << " with " << hab << " habitants."<< std::endl;
+	unique_id++;
 
 }
 
@@ -42,5 +43,14 @@ Building& Building::operator=(const Building& rhs){
 
 }
 
+Resident* Building::get_resident(){
+	return resident_;
+
+}
+
+void Building::set_resident(Resident* res){
+
+	resident_ = res;
 
 
+}
